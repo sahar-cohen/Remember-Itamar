@@ -265,7 +265,7 @@ footer { background: var(--text-main); color: rgba(255,255,255,0.7); padding: 3r
     /* Navbar: Hide links */
     .nav-links { display: none; }
     
-    /* --- HERO FIX: Split View + Centered Image --- */
+    /* --- HERO FIX: Split View + Centered & Zoomed Image --- */
     .hero { 
         height: auto; 
         min-height: 100vh;
@@ -279,9 +279,11 @@ footer { background: var(--text-main); color: rgba(255,255,255,0.7); padding: 3r
         position: relative;
         width: 100%;
         height: 50vh; 
-        /* CENTER HORIZONTALLY, TOP VERTICALLY */
-        object-position: center top; 
         z-index: 0;
+        /* THE FIX: Zoom in 15% and shift focus left/down to center face */
+        object-fit: cover;
+        transform: scale(1.15); 
+        object-position: 35% 20%; 
     }
     .hero::before { display: none; }
 
