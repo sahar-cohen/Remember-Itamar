@@ -11,11 +11,15 @@
     <nav class="navbar">
         <div class="container nav-container">
             <div class="logo">זוכרים את איתמר</div>
-            <div class="nav-links">
-                <a href="#home">בית</a>
-                <a href="#stories">סיפורים</a>
-                <a href="#media">מדיה</a>
-                <a href="#contact">שתפו אותנו</a>
+            
+            <button class="hamburger" onclick="toggleMenu()">☰</button>
+            
+            <div class="nav-links" id="nav-links">
+                <a href="#home" onclick="toggleMenu()">בית</a>
+                <a href="#about" onclick="toggleMenu()">על איתמר</a>
+                <a href="#stories" onclick="toggleMenu()">סיפורים</a>
+                <a href="#media" onclick="toggleMenu()">מדיה</a>
+                <a href="#contact" onclick="toggleMenu()">שתפו אותנו</a>
             </div>
         </div>
     </nav>
@@ -278,6 +282,11 @@
                 audio.pause();
                 btn.innerHTML = "<span>▶</span> <span>נגן את השיר</span>";
             }
+        }
+
+        function toggleMenu() {
+            const nav = document.getElementById('nav-links');
+            nav.classList.toggle('active');
         }
     </script>
 </body>
