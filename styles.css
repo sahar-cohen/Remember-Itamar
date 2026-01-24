@@ -273,34 +273,72 @@ footer { background: var(--text-main); color: rgba(255,255,255,0.7); padding: 3r
 
 /* --- Mobile Responsiveness (FULL FIX) --- */
 @media (max-width: 768px) {
-    /* --- MOBILE MENU --- */
-    .hamburger { display: block; } /* Show Hamburger */
-    
-    .nav-links {
-        display: none; /* Hidden by default */
-        position: absolute;
-        top: 100%; /* Drops down below navbar */
-        left: 0;
-        width: 100%;
-        background: white;
-        flex-direction: column;
-        padding: 1rem;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        text-align: center;
-        gap: 0;
-    }
-    
-    .nav-links.active {
-        display: flex; /* Show when 'active' class is added by JS */
-    }
 
-    .nav-links a {
-        padding: 1rem 0;
-        border-bottom: 1px solid #f0f0f0;
-        width: 100%;
-        display: block;
-    }
+/* --- MOBILE MENU (Modern Glass & Animation) --- */
+.hamburger { 
+    display: block; 
+    font-size: 1.8rem; /* Slightly smaller, more elegant */
+    opacity: 0.8;
+} 
 
+/* 1. Make the main navbar transparent/glassy on mobile */
+.navbar {
+    background: rgba(255, 255, 255, 0.6); /* Very transparent */
+    backdrop-filter: blur(12px); /* heavy blur effect (Glassmorphism) */
+    -webkit-backdrop-filter: blur(12px); /* Safari support */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: none; /* Remove shadow to keep it light */
+}
+
+/* 2. The Dropdown Menu (Floating Card Style) */
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; 
+    left: 10px; /* Floating gap from left */
+    width: calc(100% - 20px); /* Floating gap from right */
+    
+    /* Glassy Card Look */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px; /* Rounded corners */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15); /* Soft premium shadow */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    
+    padding: 0.5rem;
+    text-align: center;
+    gap: 5px;
+    
+    /* 3. The Animation Setup */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.98); /* Start slightly higher and smaller */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth "Apple-like" ease */
+}
+
+/* When Open */
+.nav-links.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(10px) scale(1); /* Slide down and expand to full size */
+}
+
+/* Links inside */
+.nav-links a {
+    padding: 0.8rem 0;
+    border-bottom: none; /* Remove harsh lines */
+    border-radius: 10px;
+    font-weight: 500;
+    color: var(--text-main);
+    transition: background 0.2s;
+}
+
+/* Active touch state for links */
+.nav-links a:active {
+    background: rgba(0,0,0,0.05);
+}
     
     /* --- HERO FIX: Split View + Centered & Zoomed Image --- */
     .hero { 
