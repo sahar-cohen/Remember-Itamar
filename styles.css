@@ -280,109 +280,96 @@ section { padding: 7rem 0; }
 /* --- Footer --- */
 footer { background: var(--text-main); color: rgba(255,255,255,0.7); padding: 3rem 0; text-align: center; }
 
-/* Update Audio Player Positioning for Desktop */
+/* --- Song Section (Desktop Fixed) --- */
+.song-section {
+    background-color: #f8f8f8;
+    position: relative;
+    overflow: hidden;
+    padding: 6rem 0;
+}
+
 .song-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Restore 2-column layout */
-    gap: 4rem;
-    align-items: center; /* Vertically center the story and player */
+    /* In Hebrew (RTL): Column 1 is Right (Story), Column 2 is Left (Wrapper) */
+    grid-template-columns: 1.2fr 0.8fr; 
+    gap: 5rem;
+    align-items: start; /* Aligns both columns to the top */
 }
 
+/* Right Column: Story */
+.song-info {
+    text-align: right;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-main);
+}
+.song-info p { margin-bottom: 1.2rem; }
+
+/* Left Column: Wrapper for Player, Image, Lyrics */
+.lyrics-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally in the column */
+    text-align: center;
+}
+
+/* Player Styling */
 .audio-player-container {
-    grid-area: player; /* Places player at the top on desktop too */
+    margin-bottom: 2rem;
+    width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 2rem;
 }
 
-.song-info { grid-area: info; }
-.lyrics-wrapper { grid-area: lyrics; }
-
-/* Mobile Reset (Already in the media query above, but just to explain) */
-@media (max-width: 768px) {
-    .song-container {
-        display: flex; /* Switch to stack */
-        grid-template-areas: none;
-    }
+/* Image Styling */
+.muscle-drawing-decor {
+    width: 200px; /* Nice contained size */
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+    mix-blend-mode: multiply; /* Blends white background if image has it */
 }
 
-/* --- Mobile Responsiveness (FINAL) --- */
+/* Lyrics Styling */
+.lyrics-content h3 {
+    color: var(--primary-red);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+.lyrics-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 2;
+    color: #333;
+    white-space: pre-line;
+}
+
+/* --- Mobile Override (Keeping your preferred look) --- */
 @media (max-width: 768px) {
-    /* Navbar */
-    .nav-links { display: none; }
-    
-    /* --- HERO FIXES (Keeping what works) --- */
-    .hero { 
-        height: auto; 
-        min-height: 100vh;
-        flex-direction: column; 
-        justify-content: flex-start;
-        padding: 0;
-        background: var(--white);
-    }
-    .hero-bg {
-        position: relative;
-        width: 100%;
-        height: 50vh; 
-        object-position: top center; 
-    }
-    .hero::before { display: none; }
-    .hero-content { 
-        width: 100%; 
-        margin-right: 0; 
-        text-align: center; 
-        padding: 2.5rem 1.5rem; 
-        background: var(--white);
-        color: var(--text-main);
-        box-shadow: 0 -20px 30px rgba(0,0,0,0.05);
-        position: relative;
-        z-index: 2;
-        margin-top: -20px;
-        border-radius: 20px 20px 0 0;
-    }
-    .hero h1 { font-size: 2rem; color: var(--primary-red); text-shadow: none; margin-bottom: 1.5rem; }
-    .hero p { font-size: 1.1rem; line-height: 1.6; color: var(--text-main); text-shadow: none; display: block; }
-    .hero-footer { border-right: none; border-bottom: 3px solid var(--primary-red); padding-right: 0; padding-bottom: 5px; margin-top: 2rem; color: var(--text-main); display: inline-block; }
-
-    /* --- SECTIONS SPACING --- */
-    section { padding: 4rem 0; }
-    
-    /* --- ABOUT SECTION --- */
-    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .about-img { order: -1; max-height: 300px; }
-
-    /* --- SONG SECTION (Clean Mobile Version) --- */
     .song-section {
-        margin-top: 0;
-        border-top: 10px solid #f0f0f0;
+        padding-top: 3rem;
+        border-top: 10px solid #f0f0f0; /* Visual separator */
     }
-
-    .song-container { 
+    
+    .song-container {
         display: flex;
-        flex-direction: column;
-        gap: 2rem; 
+        flex-direction: column; /* Stack vertically */
+        gap: 1.5rem;
     }
 
+    /* Move the Wrapper (Player) to the TOP */
     .lyrics-wrapper {
-        order: -1; /* Move Player to the TOP */
-        padding: 0;
-        min-height: auto; /* Remove minimum height */
+        order: -1; 
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    /* Hide the Image & Lyrics on Mobile */
+    .mobile-hide {
+        display: none !important;
     }
     
     .song-info {
         text-align: center;
-        padding: 0 0.5rem;
+        padding: 0 1rem;
     }
-    
-    /* HIDE Lyrics and Image on Mobile */
-    .mobile-hide {
-        display: none !important;
-    }
-
-    /* --- GENERAL FIXES --- */
-    .marquee-item { width: 300px; height: 200px; }
-    .media-item { flex-direction: column; align-items: flex-start; }
-    .media-thumbnail { width: 100%; height: 200px; }
-    .form-row { grid-template-columns: 1fr; gap: 0; }
-    .form-title { font-size: 1.8rem; }
 }
