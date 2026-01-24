@@ -58,7 +58,7 @@ section { padding: 7rem 0; }
 .nav-links a { font-weight: 500; font-size: 1.05rem; }
 .nav-links a:hover { color: var(--primary-red); }
 
-/* --- Hero --- */
+/* --- Hero (Desktop) --- */
 .hero {
     height: 95vh;
     position: relative; display: flex; align-items: center;
@@ -66,7 +66,8 @@ section { padding: 7rem 0; }
 }
 .hero-bg {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    object-fit: cover; z-index: 0; object-position: top left; 
+    object-fit: cover; z-index: 0; 
+    object-position: top left; /* Desktop Focus */
 }
 .hero::before {
     content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;
@@ -95,7 +96,7 @@ section { padding: 7rem 0; }
 .about-text p { font-size: 1.1rem; }
 .about-img img { border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
 
-/* --- Song Section (Desktop Fixed) --- */
+/* --- Song Section (Desktop Layout) --- */
 .song-section {
     background-color: #f8f8f8;
     position: relative;
@@ -105,10 +106,10 @@ section { padding: 7rem 0; }
 
 .song-container {
     display: grid;
-    /* In Hebrew (RTL): Column 1 is Right (Story), Column 2 is Left (Wrapper) */
+    /* Column 1 (Right): Story Text | Column 2 (Left): Player & Lyrics */
     grid-template-columns: 1.2fr 0.8fr; 
     gap: 5rem;
-    align-items: start; /* Aligns both columns to the top */
+    align-items: start;
 }
 
 /* Right Column: Story */
@@ -120,11 +121,11 @@ section { padding: 7rem 0; }
 }
 .song-info p { margin-bottom: 1.2rem; }
 
-/* Left Column: Wrapper for Player, Image, Lyrics */
+/* Left Column: Wrapper */
 .lyrics-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers items horizontally in the column */
+    align-items: center;
     text-align: center;
 }
 
@@ -149,10 +150,10 @@ section { padding: 7rem 0; }
 
 /* Image Styling */
 .muscle-drawing-decor {
-    width: 200px; /* Nice contained size */
+    width: 200px;
     margin-bottom: 1.5rem;
     opacity: 0.9;
-    mix-blend-mode: multiply; /* Blends white background if image has it */
+    mix-blend-mode: multiply; 
 }
 
 /* Lyrics Styling */
@@ -226,124 +227,70 @@ section { padding: 7rem 0; }
     color: var(--white);
     text-align: center;
 }
-
-.form-container {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
+.form-container { max-width: 600px; margin: 0 auto; }
 .form-title {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    margin-bottom: 3rem;
-    color: var(--white);
-    font-weight: 700;
+    font-size: 2.5rem; line-height: 1.2; margin-bottom: 3rem;
+    color: var(--white); font-weight: 700;
 }
 .form-title::after { display: none; } 
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-bottom: 0;
-}
-
-.form-group {
-    text-align: right;
-    margin-bottom: 1.5rem;
-}
-
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 0; }
+.form-group { text-align: right; margin-bottom: 1.5rem; }
 .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: var(--white);
+    display: block; margin-bottom: 0.5rem; font-weight: 700;
+    font-size: 1.1rem; color: var(--white);
 }
-
-.form-group input, 
-.form-group textarea {
-    width: 100%;
-    padding: 1rem;
-    border: none;
-    border-radius: 10px;
-    font-family: 'Rubik', sans-serif;
-    font-size: 1rem;
-    background: var(--white);
-    color: #333;
-    transition: 0.3s;
+.form-group input, .form-group textarea {
+    width: 100%; padding: 1rem; border: none; border-radius: 10px;
+    font-family: 'Rubik', sans-serif; font-size: 1rem;
+    background: var(--white); color: #333; transition: 0.3s;
 }
-
-.form-group input::placeholder, 
-.form-group textarea::placeholder {
-    color: #aaa;
+.form-group input::placeholder, .form-group textarea::placeholder { color: #aaa; }
+.form-group input:focus, .form-group textarea:focus {
+    outline: none; box-shadow: 0 0 0 4px rgba(255,255,255,0.3);
 }
-
-.form-group input:focus, 
-.form-group textarea:focus {
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(255,255,255,0.3);
-}
-
 .btn-submit {
-    background-color: #222;
-    color: var(--white);
-    border: none;
-    padding: 1rem;
-    width: 100%;
-    border-radius: 10px;
-    font-size: 1.3rem;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: transform 0.2s, background-color 0.2s;
+    background-color: #222; color: var(--white); border: none;
+    padding: 1rem; width: 100%; border-radius: 10px;
+    font-size: 1.3rem; font-weight: 700; cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.2s, background-color 0.2s;
     font-family: 'Rubik', sans-serif;
 }
-
-.btn-submit:hover {
-    background-color: #000;
-    transform: translateY(-2px);
-}
+.btn-submit:hover { background-color: #000; transform: translateY(-2px); }
 
 /* --- Footer --- */
 footer { background: var(--text-main); color: rgba(255,255,255,0.7); padding: 3rem 0; text-align: center; }
 
 /* --- Mobile Responsiveness (FULL FIX) --- */
 @media (max-width: 768px) {
-    /* Navbar: Hide links on mobile */
+    /* Navbar: Hide links */
     .nav-links { display: none; }
     
-    /* --- HERO SECTION (Split View) --- */
+    /* --- HERO FIX: Split View + Centered Image --- */
     .hero { 
         height: auto; 
         min-height: 100vh;
-        flex-direction: column; /* Stack vertically */
+        flex-direction: column; 
         justify-content: flex-start;
         padding: 0;
         background: var(--white);
     }
     
-    /* Image Part */
     .hero-bg {
         position: relative;
         width: 100%;
         height: 50vh; 
-        object-position: top center; 
+        /* CENTER HORIZONTALLY, TOP VERTICALLY */
+        object-position: center top; 
         z-index: 0;
     }
     .hero::before { display: none; }
 
-    /* Text Part */
     .hero-content { 
-        width: 100%; 
-        margin-right: 0; 
-        text-align: center; 
+        width: 100%; margin-right: 0; text-align: center; 
         padding: 2.5rem 1.5rem; 
-        background: var(--white);
-        color: var(--text-main);
+        background: var(--white); color: var(--text-main);
         box-shadow: 0 -20px 30px rgba(0,0,0,0.05);
-        position: relative;
-        z-index: 2;
+        position: relative; z-index: 2;
         margin-top: -20px;
         border-radius: 20px 20px 0 0;
     }
@@ -351,49 +298,42 @@ footer { background: var(--text-main); color: rgba(255,255,255,0.7); padding: 3r
     .hero p { font-size: 1.1rem; line-height: 1.6; color: var(--text-main); text-shadow: none; display: block; }
     .hero-footer { border-right: none; border-bottom: 3px solid var(--primary-red); padding-right: 0; padding-bottom: 5px; margin-top: 2rem; color: var(--text-main); display: inline-block; }
 
-    /* --- SECTIONS SPACING --- */
+    /* --- Sections --- */
     section { padding: 4rem 0; }
-    
-    /* --- ABOUT SECTION --- */
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
     .about-img { order: -1; max-height: 300px; }
 
-    /* --- SONG SECTION (Clean Mobile Version) --- */
+    /* --- SONG SECTION (Stacked & Clean) --- */
     .song-section {
         padding-top: 3rem;
-        border-top: 10px solid #f0f0f0; /* Visual separator */
+        border-top: 10px solid #f0f0f0;
     }
     
     .song-container {
         display: flex;
-        flex-direction: column;
+        flex-direction: column; 
         gap: 1.5rem;
     }
 
-    /* Move the Wrapper (Player) to the TOP */
+    /* Move Player to TOP */
     .lyrics-wrapper {
         order: -1; 
         margin-bottom: 0;
         width: 100%;
     }
 
-    /* Hide the Image & Lyrics on Mobile */
-    .mobile-hide {
-        display: none !important;
-    }
+    /* Hide Image & Lyrics */
+    .mobile-hide { display: none !important; }
     
     .song-info {
         text-align: center;
         padding: 0 1rem;
     }
 
-    /* --- GENERAL FIXES --- */
+    /* --- General Mobile --- */
     .marquee-item { width: 300px; height: 200px; }
-    
     .media-item { flex-direction: column; align-items: flex-start; }
     .media-thumbnail { width: 100%; height: 200px; }
-    
-    /* Mobile Form */
     .form-row { grid-template-columns: 1fr; gap: 0; }
     .form-title { font-size: 1.8rem; }
 }
