@@ -59,24 +59,24 @@
             
             <div class="song-container">
                 
-                <div class="audio-player-container mobile-player-fix">
-                    <audio id="song-player" src="music/song.mp3"></audio>
-                    <button id="play-btn" class="play-button" onclick="togglePlay()">
-                        <span>▶</span> <span>נגן את השיר</span>
-                    </button>
-                </div>
-
                 <div class="song-info">
                     <p>בוקר אחרי שאיתמר נהרג הסתכלנו בפלייליסט שלו, לא היו בו הרבה שירים, והאצבע לחצה על שיר שלא הכרתי בשם ״כוכב״ בביצוע של אביתר בנאי. ליאור בת הזוג שלו סיפרה שהוא שמע אותו הרבה בתקופה האחרונה וכששמענו את המילים עברה בנו צמרמורת.</p>
                     <p>איתמר רצה להתגייס לקרבי מאז ומתמיד, הצבא עיצב אותו מאוד, במיוחד בתקופה הזו ראינו איך הוא חי כל יום ״כמו טבעת יהלום״, בשמחה, בחדווה, במשמעות גדולה. היה גאה להיות לוחם ומפקד, אהב את החיים, ניצל אותם בצורה הטובה ביותר, היה מאושר, היה בזוגיות מדהימה עם ליאור, מוקף חברים טובים, משפחה אוהבת. עכשיו עבורנו הוא הכוכב היחיד בשמיים, זורם בעורקים, מנצנץ למרחקים וזוהר לעולמים.</p>
                 </div>
 
                 <div class="lyrics-wrapper">
-                    <img src="images/muscle-drawing.avif" class="muscle-drawing-decor" alt="">
                     
-                    <div class="lyrics-content">
+                    <div class="audio-player-container">
+                        <audio id="song-player" src="music/song.mp3"></audio>
+                        <button id="play-btn" class="play-button" onclick="togglePlay()">
+                            <span>▶</span> <span>נגן את השיר</span>
+                        </button>
+                    </div>
+
+                    <img src="images/muscle-drawing.avif" class="muscle-drawing-decor mobile-hide" alt="">
+                    
+                    <div class="lyrics-content mobile-hide">
                         <h3>מילים: אסף אמדורסקי</h3>
-                        
                         <div class="lyrics-text">
 "תן את ימיך
 כמו טבעת יהלום

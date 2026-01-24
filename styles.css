@@ -283,13 +283,9 @@ footer { background: var(--text-main); color: rgba(255,255,255,0.7); padding: 3r
 /* Update Audio Player Positioning for Desktop */
 .song-container {
     display: grid;
-    /* We change this to allow the player to span full width if needed */
-    grid-template-areas: 
-        "player player"
-        "info lyrics";
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1fr 1fr; /* Restore 2-column layout */
     gap: 4rem;
-    align-items: start;
+    align-items: center; /* Vertically center the story and player */
 }
 
 .audio-player-container {
@@ -310,92 +306,55 @@ footer { background: var(--text-main); color: rgba(255,255,255,0.7); padding: 3r
     }
 }
 
-/* --- Mobile Responsiveness (FIXED & POLISHED) --- */
+/* --- Mobile Responsiveness (FINAL) --- */
 @media (max-width: 768px) {
-    /* Navbar: Hide links on mobile */
+    /* Navbar */
     .nav-links { display: none; }
     
-    /* --- HERO SECTION (Split View) --- */
+    /* --- HERO FIXES (Keeping what works) --- */
     .hero { 
-        height: auto; /* Allow it to grow */
+        height: auto; 
         min-height: 100vh;
-        flex-direction: column; /* Stack vertically */
+        flex-direction: column; 
         justify-content: flex-start;
         padding: 0;
-        background: var(--white); /* White background for the text part */
+        background: var(--white);
     }
-
-    /* The Image Part */
     .hero-bg {
-        position: relative; /* No longer absolute coverage */
+        position: relative;
         width: 100%;
-        height: 50vh; /* Takes top half of screen */
-        object-position: top center; /* Focus on face */
-        z-index: 0;
+        height: 50vh; 
+        object-position: top center; 
     }
-
-    /* Remove the dark gradient overlay on mobile (since text is on white) */
     .hero::before { display: none; }
-
-    /* The Text Part */
     .hero-content { 
         width: 100%; 
         margin-right: 0; 
         text-align: center; 
         padding: 2.5rem 1.5rem; 
         background: var(--white);
-        color: var(--text-main); /* Black text */
-        box-shadow: 0 -20px 30px rgba(0,0,0,0.05); /* Subtle lift effect */
+        color: var(--text-main);
+        box-shadow: 0 -20px 30px rgba(0,0,0,0.05);
         position: relative;
         z-index: 2;
-        margin-top: -20px; /* Slight overlap with image looks nice */
+        margin-top: -20px;
         border-radius: 20px 20px 0 0;
     }
-
-    .hero h1 { 
-        font-size: 2rem; 
-        color: var(--primary-red); /* Red title on white bg */
-        text-shadow: none;
-        margin-bottom: 1.5rem;
-    }
-    
-    .hero p {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        color: var(--text-main);
-        text-shadow: none;
-        display: block; /* Show all text */
-    }
-
-    .hero-footer { 
-        border-right: none; 
-        border-bottom: 3px solid var(--primary-red); 
-        padding-right: 0; 
-        padding-bottom: 5px;
-        margin-top: 2rem;
-        color: var(--text-main);
-        display: inline-block;
-    }
+    .hero h1 { font-size: 2rem; color: var(--primary-red); text-shadow: none; margin-bottom: 1.5rem; }
+    .hero p { font-size: 1.1rem; line-height: 1.6; color: var(--text-main); text-shadow: none; display: block; }
+    .hero-footer { border-right: none; border-bottom: 3px solid var(--primary-red); padding-right: 0; padding-bottom: 5px; margin-top: 2rem; color: var(--text-main); display: inline-block; }
 
     /* --- SECTIONS SPACING --- */
-    section { 
-        padding: 4rem 0; 
-    }
-
+    section { padding: 4rem 0; }
+    
     /* --- ABOUT SECTION --- */
-    .about-grid { 
-        grid-template-columns: 1fr; 
-        gap: 3rem; 
-    }
-    .about-img { 
-        order: -1; /* Image first */
-        max-height: 300px;
-    }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-img { order: -1; max-height: 300px; }
 
-    /* --- SONG SECTION FIXES --- */
+    /* --- SONG SECTION (Clean Mobile Version) --- */
     .song-section {
         margin-top: 0;
-        border-top: 10px solid #f0f0f0; /* Visual separator */
+        border-top: 10px solid #f0f0f0;
     }
 
     .song-container { 
@@ -403,42 +362,27 @@ footer { background: var(--text-main); color: rgba(255,255,255,0.7); padding: 3r
         flex-direction: column;
         gap: 2rem; 
     }
-    
-    /* 1. Play Button & Title Wrapper (We will move this in HTML) */
-    .audio-player-container {
-        order: 1; /* First */
-        width: 100%;
-        margin-bottom: 1rem;
-    }
 
-    /* 2. Story Text */
+    .lyrics-wrapper {
+        order: -1; /* Move Player to the TOP */
+        padding: 0;
+        min-height: auto; /* Remove minimum height */
+    }
+    
     .song-info {
-        order: 2; /* Second */
         text-align: center;
         padding: 0 0.5rem;
     }
-
-    /* 3. Lyrics */
-    .lyrics-wrapper {
-        order: 3; /* Last */
-        padding: 0;
-        margin-top: 1rem;
-    }
     
-    .muscle-drawing-decor {
-        width: 150px;
-        margin: 2rem auto;
-        align-self: center;
-        opacity: 0.1;
+    /* HIDE Lyrics and Image on Mobile */
+    .mobile-hide {
+        display: none !important;
     }
 
     /* --- GENERAL FIXES --- */
     .marquee-item { width: 300px; height: 200px; }
-    
     .media-item { flex-direction: column; align-items: flex-start; }
     .media-thumbnail { width: 100%; height: 200px; }
-    
-    /* Mobile Form */
     .form-row { grid-template-columns: 1fr; gap: 0; }
     .form-title { font-size: 1.8rem; }
 }
