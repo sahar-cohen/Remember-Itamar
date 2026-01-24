@@ -280,23 +280,114 @@ section { padding: 7rem 0; }
 /* --- Footer --- */
 footer { background: var(--text-main); color: rgba(255,255,255,0.7); padding: 3rem 0; text-align: center; }
 
-/* --- Mobile Responsiveness --- */
+/* --- Mobile Responsiveness (FIXED) --- */
 @media (max-width: 768px) {
+    /* Navbar: Hide links on mobile */
     .nav-links { display: none; }
     
-    .hero { justify-content: center; align-items: flex-end; padding-bottom: 4rem; }
-    .hero::before { background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 70%); }
-    .hero-content { width: 100%; margin-right: 0; text-align: center; padding: 2rem; }
-    .hero h1 { font-size: 2.5rem; }
-    .hero-footer { border-right: none; border-bottom: 3px solid var(--primary-red); padding-right: 0; }
+    /* --- HERO FIXES --- */
+    .hero { 
+        height: 100vh; /* Full screen height */
+        justify-content: center; 
+        align-items: flex-end; /* Push text to bottom */
+        padding-bottom: 2rem;
+    }
+
+    .hero-bg {
+        /* CRITICAL: Focus on the left side (25%) where the face is */
+        object-position: 25% 20%; 
+    }
+
+    .hero::before {
+        /* Stronger gradient so text is readable on top of the image */
+        background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0) 100%);
+    }
+
+    .hero-content { 
+        width: 100%; 
+        margin-right: 0; 
+        text-align: center; 
+        padding: 1.5rem; 
+        padding-bottom: 4rem; /* Lift text up slightly */
+    }
+
+    .hero h1 { 
+        font-size: 2rem; /* Smaller title for mobile */
+        margin-bottom: 1rem;
+    }
     
-    section { padding: 4rem 0; }
-    .about-grid, .song-container { grid-template-columns: 1fr; gap: 3rem; }
-    .about-img { order: -1; }
+    .hero p {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        display: none; /* OPTIONAL: Hide long text on mobile if it covers the face, OR keep it: */
+        /* display: block; */ 
+    }
     
+    /* Only show the first paragraph on mobile to save space? 
+       Uncomment below to hide the 2nd and 3rd paragraphs if it's too crowded */
+    /* .hero p:nth-of-type(2), .hero p:nth-of-type(3) { display: none; } */
+
+    .hero-footer { 
+        border-right: none; 
+        border-bottom: 3px solid var(--primary-red); 
+        padding-right: 0; 
+        padding-bottom: 5px;
+        margin-top: 1rem;
+    }
+
+    /* --- SECTIONS SPACING --- */
+    section { 
+        padding: 4rem 0; 
+    }
+
+    /* --- ABOUT SECTION --- */
+    .about-grid { 
+        grid-template-columns: 1fr; 
+        gap: 3rem; 
+    }
+    .about-img { 
+        order: -1; /* Puts image above text */
+        max-height: 300px;
+        overflow: hidden;
+    }
+
+    /* --- SONG SECTION FIXES --- */
+    .song-section {
+        /* Add a clear visual gap/divider from the previous section */
+        margin-top: 2rem;
+        padding-top: 5rem;
+        border-top: 8px solid #eee; /* Visual separator */
+    }
+
+    .song-container { 
+        grid-template-columns: 1fr; 
+        gap: 4rem; 
+    }
+    
+    /* Ensure story text has breathing room */
+    .song-info {
+        text-align: center; /* Center text on mobile */
+        padding: 0 1rem;
+    }
+
+    /* Fix the lyrics/player layout */
+    .lyrics-wrapper {
+        order: 1; /* Ensures lyrics come AFTER the story */
+        padding: 0;
+        margin-top: 2rem;
+    }
+    
+    .muscle-drawing-decor {
+        width: 150px;
+        margin: 0 auto 2rem auto; /* Center the drawing */
+        align-self: center;
+    }
+
+    /* --- GENERAL FIXES --- */
     .marquee-item { width: 300px; height: 200px; }
+    
     .media-item { flex-direction: column; align-items: flex-start; }
-    .media-thumbnail { width: 100%; height: 180px; }
+    .media-thumbnail { width: 100%; height: 200px; }
     
     /* Mobile Form */
     .form-row { grid-template-columns: 1fr; gap: 0; }
