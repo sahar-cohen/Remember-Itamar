@@ -1,3 +1,4 @@
+(function () {
 var nav = document.getElementById('nav');
 var menuBtn = document.getElementById('menu-btn');
 var navLinks = document.getElementById('nav-links');
@@ -239,3 +240,6 @@ if (audio) {
         audio.currentTime = (e.clientX - rect.left) / rect.width * audio.duration;
     });
 }
+
+window.siteReady = true;
+})();
