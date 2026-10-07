@@ -137,8 +137,10 @@ p + p { margin-top: 1em; }
 
 /* Form */
 .form-section { background: var(--bg-alt); }
-.form-section .section-title { border-color: #dcdcd8; }
-.form-grid { display: grid; }
+.form-wrap { max-width: 680px; }
+.form-head { text-align: center; margin-bottom: 2rem; }
+.form-head h2 { font-size: 1.6rem; line-height: 1.3; }
+.form-head p { margin-top: 0.4rem; color: var(--muted); font-size: 1.1rem; }
 .form-row { display: grid; }
 .field { margin-bottom: 18px; }
 .field label { display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 6px; }
@@ -257,7 +259,7 @@ footer { background: var(--dark); color: #8a8a8a; padding: 2rem 0 6rem; text-ali
 
     .marquee img { height: 260px; }
     .form-row { grid-template-columns: 1fr 1fr; gap: 18px; }
-    .btn { display: inline-block; width: auto; padding: 15px 56px; }
+    .btn { display: block; width: auto; margin: 0 auto; padding: 15px 56px; }
 
     .story-page h1 { font-size: 2.4rem; }
     .more-grid { grid-template-columns: repeat(3, 1fr); }
@@ -306,8 +308,9 @@ footer { background: var(--dark); color: #8a8a8a; padding: 2rem 0 6rem; text-ali
 
     .marquee img { height: 300px; }
 
-    .form-grid { grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: start; }
-    .form-grid h2 { font-size: 2.6rem; margin: 0; }
+    .form-head { margin-bottom: 2.75rem; }
+    .form-head h2 { font-size: 2.3rem; }
+    .form-head p { font-size: 1.2rem; }
 
     .song { padding: 5rem 0; }
     .song .section-title { margin-bottom: 2.25rem; }
