@@ -2,85 +2,126 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>יוסף איתמר ברוכים הי״ד | Remember Itamar</title>
+    <meta name="description" content="לזכרו של סמ״ר יוסף איתמר ברוכים הי״ד, לוחם ומפקד בגדוד 101 בחטיבת הצנחנים.">
+    <meta name="theme-color" content="#121212">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script>document.documentElement.className = 'js';</script>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="logo">זוכרים את איתמר</div>
-            
-            <button class="hamburger" onclick="toggleMenu()">☰</button>
-            
+    <nav class="nav" id="nav">
+        <div class="container nav-inner">
+            <a href="#home" class="brand">זוכרים את איתמר</a>
+            <button class="menu-btn" id="menu-btn" aria-label="תפריט" aria-expanded="false"><span></span><span></span></button>
             <div class="nav-links" id="nav-links">
-                <a href="#home" onclick="toggleMenu()">בית</a>
-                <a href="#about" onclick="toggleMenu()">על איתמר</a>
-                <a href="#stories" onclick="toggleMenu()">סיפורים</a>
-                <a href="#media" onclick="toggleMenu()">מדיה</a>
-                <a href="#contact" onclick="toggleMenu()">שתפו אותנו</a>
+                <a href="#about">על איתמר</a>
+                <a href="#stories">סיפורים</a>
+                <a href="#song">השיר</a>
+                <a href="#contact">שתפו אותנו</a>
             </div>
         </div>
     </nav>
 
     <header id="home" class="hero">
-        <img src="images/hero.avif" alt="איתמר ברוכים" class="hero-bg">
-        <div class="container">
-            <div class="hero-content">
-                <h1>סמ״ר יוסף איתמר ברוכים הי״ד</h1>
+        <div class="hero-media">
+            <img src="images/hero.avif" alt="איתמר ברוכים" class="hero-img">
+        </div>
+        <div class="container hero-content">
+            <h1>
+                <span class="line"><span class="eyebrow">לזכרו של</span></span>
+                <span class="line"><span>סמ״ר יוסף איתמר</span></span>
+                <span class="line"><span>ברוכים הי״ד</span></span>
+            </h1>
+            <div class="hero-text">
                 <p>איתמר היה לוחם ומפקד בגדוד 101 בחטיבת הצנחנים. איתמר ראה בשירות בצה״ל ובתפקיד של לוחם קרבי, כערך עליון ההכרחי לקיומה של המדינה, אהב את השירות הצבאי בכלל ואת חייליו - בהם היה גאה - בפרט.</p>
                 <p>איתמרי היה בן, אח ובן זוג אוהב, חבר טוב שניחן במתנת הקסם האישי.</p>
                 <p>אנו כואבים את לכתו וגאים בו על האדם שהיה, על האומץ, הערכים, טוב הלב ושמחת החיים שלו.</p>
-                <div class="hero-footer">יהי זכרו ברוך.</div>
             </div>
         </div>
     </header>
 
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>ביום שבת 7/10 בשעות הבוקר איתמר הוקפץ לצבא, הוא חזר מביתה של ליאור בת זוגתו בזמן אזעקות בלתי פוסקות, התארגן במהרה ויצא לבסיס.</p>
-                    <p>יחד עם מחלקתו נשלח לשדרות, שם הם טיהרו את העיר ממחבלים, חילצו פצועים וחסרי ישע מבתיהם אל מרכזי טיפול ופינו אזרחים תחת אש פצמ״רים בלתי פוסקת.</p>
-                    <p>חיילים שהיו עימו סיפרו שגם בשדרות הוא שמר על אופטימיות ונתן לסובבים שלו תחושה שהכל נמצא תחת שליטה.</p>
-                    <p>איתמר נפל ביום השני למלחמה בשעות הבוקר.</p>
-                    <p>אנו כואבים את לכתו וגאים בו על האדם שהיה, על האומץ, הערכים, טוב הלב ושמחת החיים שלו.</p>
-                    <p style="font-weight: 700;">יהי זכרו ברוך.</p>
-                </div>
-                <div class="about-img">
-                    <img src="images/soldiers.avif" alt="איתמר עם חברים לנשק">
-                </div>
+    <section id="about" class="section about">
+        <div class="container about-grid">
+            <figure class="reveal-img">
+                <img src="images/soldiers.avif" alt="איתמר עם חברים לנשק" loading="lazy">
+            </figure>
+            <div class="about-text reveal">
+                <p>ביום שבת 7/10 בשעות הבוקר איתמר הוקפץ לצבא, הוא חזר מביתה של ליאור בת זוגתו בזמן אזעקות בלתי פוסקות, התארגן במהרה ויצא לבסיס.</p>
+                <p>יחד עם מחלקתו נשלח לשדרות, שם הם טיהרו את העיר ממחבלים, חילצו פצועים וחסרי ישע מבתיהם אל מרכזי טיפול ופינו אזרחים תחת אש פצמ״רים בלתי פוסקת.</p>
+                <p>חיילים שהיו עימו סיפרו שגם בשדרות הוא שמר על אופטימיות ונתן לסובבים שלו תחושה שהכל נמצא תחת שליטה.</p>
+                <p>איתמר נפל ביום השני למלחמה בשעות הבוקר.</p>
+                <p>אנו כואבים את לכתו וגאים בו על האדם שהיה, על האומץ, הערכים, טוב הלב ושמחת החיים שלו.</p>
+                <p><strong>יהי זכרו ברוך.</strong></p>
             </div>
         </div>
     </section>
 
-    <section class="song-section">
+    <section id="stories" class="section stories">
         <div class="container">
-            <div class="section-header">
-                <h2>כוכב - השיר של איתמר</h2>
-            </div>
-            
-            <div class="song-container">
-                
-                <div class="song-info">
+            <h2 class="section-title reveal">מספרים על איתמר</h2>
+            <div id="stories-groups"></div>
+        </div>
+    </section>
+
+    <div class="gallery">
+        <div class="marquee">
+            <img src="images/carousel-ceremony.avif" alt="טקס">
+            <img src="images/carousel-couple.jpg" alt="זוגיות">
+            <img src="images/soldiers.avif" alt="עם הצוות">
+            <img src="images/carousel-vest.avif" alt="בשטח">
+            <img src="images/story-girlfriend-lior.avif" alt="ליאור">
+            <img src="images/story-dad-meir.avif" alt="אבא">
+            <img src="images/hero.avif" alt="איתמר">
+            <img src="images/story-mom-orly.jpg" alt="אמא">
+            <img src="images/story-brother-nadav.avif" alt="נדב">
+            <img src="images/story-sister-inbal.jpg" alt="ענבל">
+            <img src="images/story-granpda-gdalyahu.avif" alt="סבא">
+
+            <img src="images/carousel-ceremony.avif" alt="">
+            <img src="images/carousel-couple.jpg" alt="">
+            <img src="images/soldiers.avif" alt="">
+            <img src="images/carousel-vest.avif" alt="">
+            <img src="images/story-girlfriend-lior.avif" alt="">
+            <img src="images/story-dad-meir.avif" alt="">
+            <img src="images/hero.avif" alt="">
+            <img src="images/story-mom-orly.jpg" alt="">
+            <img src="images/story-brother-nadav.avif" alt="">
+            <img src="images/story-sister-inbal.jpg" alt="">
+            <img src="images/story-granpda-gdalyahu.avif" alt="">
+        </div>
+    </div>
+
+    <section id="song" class="section song">
+        <div class="container">
+            <div class="song-grid reveal">
+                <div class="song-player">
+                    <div class="player" id="player">
+                        <audio id="audio" src="music/song.mp3" preload="metadata"></audio>
+                        <button class="play-btn" id="play-btn" aria-label="נגן את השיר">
+                            <svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                            <svg class="icon-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg>
+                        </button>
+                        <div class="player-info">
+                            <div class="player-label">כוכב - אביתר בנאי</div>
+                            <div class="progress" id="progress"><span id="progress-fill"></span></div>
+                            <div class="player-time"><span id="time-current">0:00</span><span id="time-total"></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="song-story">
                     <p>בוקר אחרי שאיתמר נהרג הסתכלנו בפלייליסט שלו, לא היו בו הרבה שירים, והאצבע לחצה על שיר שלא הכרתי בשם ״כוכב״ בביצוע של אביתר בנאי. ליאור בת הזוג שלו סיפרה שהוא שמע אותו הרבה בתקופה האחרונה וכששמענו את המילים עברה בנו צמרמורת.</p>
                     <p>איתמר רצה להתגייס לקרבי מאז ומתמיד, הצבא עיצב אותו מאוד, במיוחד בתקופה הזו ראינו איך הוא חי כל יום ״כמו טבעת יהלום״, בשמחה, בחדווה, במשמעות גדולה. היה גאה להיות לוחם ומפקד, אהב את החיים, ניצל אותם בצורה הטובה ביותר, היה מאושר, היה בזוגיות מדהימה עם ליאור, מוקף חברים טובים, משפחה אוהבת. עכשיו עבורנו הוא הכוכב היחיד בשמיים, זורם בעורקים, מנצנץ למרחקים וזוהר לעולמים.</p>
-                </div>
-
-                <div class="lyrics-wrapper">
-                    
-                    <div class="audio-player-container">
-                        <audio id="song-player" src="music/song.mp3"></audio>
-                        <button id="play-btn" class="play-button" onclick="togglePlay()">
-                            <span>▶</span> <span>נגן את השיר</span>
-                        </button>
+                    <div class="song-toggles">
+                        <button class="toggle-btn" aria-expanded="false" aria-controls="song-lyrics" data-open="הסתרת המילים" data-closed="למילות השיר">למילות השיר</button>
                     </div>
-
-                    <div class="lyrics-content mobile-hide">
-                        <h3>מילים: אסף אמדורסקי</h3>
-                        <div class="lyrics-text">
-"תן את ימיך
+                    <div class="collapsible" id="song-lyrics">
+                        <div>
+                            <div class="lyrics">"תן את ימיך
 כמו טבעת יהלום
 לא עוד עלה רועד
 נצנץ למרחקים
@@ -90,204 +131,55 @@
 היום אתה זוהר
 זורם בעורקים
 נצנץ למרחקים
-בוהק לעולמים"
+בוהק לעולמים"</div>
+                            <p class="lyrics-credit">מילים: אסף אמדורסקי</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section id="stories" class="stories-section">
-        <div class="container">
-            <div class="section-header"><h2>מספרים על איתמר</h2></div>
-            <div class="stories-grid">
-                
-                <div class="story-card" onclick="openStory('father')">
-                    <div class="story-image-wrapper">
-                        <img src="images/story-dad-meir.avif" alt="אבא מאיר ואיתמר">
+    <section id="contact" class="section form-section">
+        <div class="container form-grid">
+            <h2 class="section-title reveal">יש לכם סיפורים על איתמר?<br>שתפו אותנו</h2>
+            <form class="reveal" action="https://formspree.io/f/xzdeavro" method="POST">
+                <div class="form-row">
+                    <div class="field">
+                        <label for="name">שם מלא</label>
+                        <input id="name" type="text" name="name" placeholder="שם מלא" autocomplete="name" required>
                     </div>
-                    <div class="story-content">
-                        <h3>אבא של איתמר מספר על ראיית הטוב בכל מצב</h3>
-                        <span class="read-more">לקריאת הסיפור &larr;</span>
-                    </div>
-                </div>
-
-                <div class="story-card" onclick="openStory('mother')">
-                    <div class="story-image-wrapper">
-                        <img src="images/story-mom-orly.jpg" alt="אמא אורלי ואיתמר" style="object-position: top center;">
-                    </div>
-                    <div class="story-content">
-                        <h3>אורלי אמא של איתמר מספרת על חוש צדק מגיל ילדות</h3>
-                        <span class="read-more">לקריאת הסיפור &larr;</span>
+                    <div class="field">
+                        <label for="email">אימייל</label>
+                        <input id="email" type="email" name="contact" placeholder="אימייל" autocomplete="email" required>
                     </div>
                 </div>
-
-                <div class="story-card" onclick="openStory('brother')">
-                    <div class="story-image-wrapper">
-                        <img src="images/story-brother-nadav.avif" alt="האח נדב ואיתמר">
-                    </div>
-                    <div class="story-content">
-                        <h3>האח נדב מספר איך איתמר דאג שיתאמן ויאמץ אורח חיים בריא</h3>
-                        <span class="read-more">לקריאת הסיפור &larr;</span>
-                    </div>
+                <div class="field">
+                    <label for="message">תוכן ההודעה</label>
+                    <textarea id="message" rows="6" name="message" placeholder="תוכן ההודעה" required></textarea>
                 </div>
-
-                <div class="story-card" onclick="openStory('sister')">
-                    <div class="story-image-wrapper">
-                        <img src="images/story-sister-inbal.jpg" alt="האחות ענבל ואיתמר">
-                    </div>
-                    <div class="story-content">
-                        <h3>האחות ענבל מספרת על הגישה של איתמר</h3>
-                        <span class="read-more">לקריאת הסיפור &larr;</span>
-                    </div>
-                </div>
-
-                <div class="story-card" onclick="openStory('partner')">
-                    <div class="story-image-wrapper">
-                        <img src="images/story-girlfriend-lior.avif" alt="ליאור ואיתמר">
-                    </div>
-                    <div class="story-content">
-                        <h3>ליאור בת הזוג מספרת על בן הזוג האוהב והמסור</h3>
-                        <span class="read-more">לקריאת הסיפור &larr;</span>
-                    </div>
-                </div>
-                 
-                <div class="story-card" onclick="openStory('grandfather')">
-                    <div class="story-image-wrapper">
-                        <img src="images/story-granpda-gdalyahu.avif" alt="סבא גדליהו ואיתמר">
-                    </div>
-                    <div class="story-content">
-                        <h3>סבא גדליהו מספר על העזרה של איתמר בשימור הכושר הגופני</h3>
-                        <span class="read-more">לקריאת הסיפור &larr;</span>
-                    </div>
-                </div>
-
-            </div>
+                <button type="submit" class="btn">שליחה</button>
+            </form>
         </div>
     </section>
 
-    <div class="carousel-section">
-        <div class="marquee">
-            
-            <div class="marquee-item"><img src="images/carousel-ceremony.avif" alt="טקס"></div>
-            <div class="marquee-item"><img src="images/hero.avif" alt="איתמר"></div>
-            <div class="marquee-item"><img src="images/carousel-vest.avif" alt="בשטח"></div>
-            <div class="marquee-item"><img src="images/soldiers.avif" alt="עם הצוות"></div>
-            <div class="marquee-item"><img src="images/carousel-couple.jpg" alt="זוגיות"></div>
-            
-            <div class="marquee-item"><img src="images/story-girlfriend-lior.avif" alt="ליאור"></div>
-            <div class="marquee-item"><img src="images/story-dad-meir.avif" alt="אבא"></div>
-            <div class="marquee-item"><img src="images/story-mom-orly.jpg" alt="אמא" style="object-position: top center"></div>
-            <div class="marquee-item"><img src="images/story-brother-nadav.avif" alt="נדב"></div>
-            <div class="marquee-item"><img src="images/story-sister-inbal.jpg" alt="ענבל"></div>
-            <div class="marquee-item"><img src="images/story-granpda-gdalyahu.avif" alt="סבא"></div>
-
-            <div class="marquee-item"><img src="images/carousel-ceremony.avif" alt="טקס"></div>
-            <div class="marquee-item"><img src="images/hero.avif" alt="איתמר"></div>
-            <div class="marquee-item"><img src="images/carousel-vest.avif" alt="בשטח"></div>
-            <div class="marquee-item"><img src="images/soldiers.avif" alt="עם הצוות"></div>
-            <div class="marquee-item"><img src="images/carousel-couple.jpg" alt="זוגיות"></div>
-            
-            <div class="marquee-item"><img src="images/story-girlfriend-lior.avif" alt="ליאור"></div>
-            <div class="marquee-item"><img src="images/story-dad-meir.avif" alt="אבא"></div>
-            <div class="marquee-item"><img src="images/story-mom-orly.jpg" alt="אמא" style="object-position: top center"></div>
-            <div class="marquee-item"><img src="images/story-brother-nadav.avif" alt="נדב"></div>
-            <div class="marquee-item"><img src="images/story-sister-inbal.jpg" alt="ענבל"></div>
-            <div class="marquee-item"><img src="images/story-granpda-gdalyahu.avif" alt="סבא"></div>
-
-        </div>
+    <div class="floating-links" id="floating-links">
+        <a class="float-btn float-instagram" href="https://www.instagram.com/rememberitamar/" target="_blank" rel="noopener" aria-label="עמוד האינסטגרם לזכרו של איתמר">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg>
+        </a>
+        <a class="float-btn float-whatsapp" href="https://chat.whatsapp.com/GygtuAQmglH5ugLsgziRcv?mode=gi_t" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+            <span>הצטרפו לקבוצת הווטסאפ</span>
+        </a>
     </div>
-<!-- 
-    <section id="media" class="media-section">
+
+    <footer>
         <div class="container">
-            <div class="section-header"><h2>איתמר במדיה</h2></div>
-            <div class="media-grid">
-                <div class="media-item">
-                    <div class="media-thumbnail">
-                        <img src="images/soldiers.avif" alt="כתבה">
-                    </div>
-                    <div class="media-content">
-                        <h3>לזכרו: מקיף יא' הנציח את בוגר ביה"ס</h3>
-                        <p>ערב פתיחה מרגש במקיף י״א של חדר הכושר החברתי, למען הנצחתו של סמ"ר יוסף איתמר ברוכים ז"ל.</p>
-                    </div>
-                </div>
-                <div class="media-item">
-                    <div class="media-thumbnail">
-                        <img src="images/hero.avif" alt="כתבה">
-                    </div>
-                    <div class="media-content">
-                        <h3>מקיף י"א: יום ספורט לזכר סמ"ר יוסף איתמר ברוכים ז"ל</h3>
-                        <p>תלמידי מקיף י"א באשדוד, מנציחים את בוגר בית הספר ביום ספורט מרגש.</p>
-                    </div>
-                </div>
-                <div class="media-item">
-                    <div class="media-thumbnail">
-                        <img src="images/soldiers.avif" alt="כתבה">
-                    </div>
-                    <div class="media-content">
-                        <h3>מיגונית לזכרו ברובע ט' באשדוד</h3>
-                        <p>האמן האשדודי איתי נבט צייר על מיגונית ברובע ט׳ את דיוקנו של סמ״ר יוסף איתמר ברוכים הי״ד</p>
-                    </div>
-                </div>
-            </div>
+            <p>נבנה באהבה לזכרו של יוסף איתמר ברוכים הי״ד. ת.נ.צ.ב.ה</p>
         </div>
-    </section> -->
+    </footer>
 
-    <section id="contact" class="form-section">
-        <div class="container">
-            <div class="form-container">
-                <h2 class="form-title">יש לכם סיפורים על איתמר?<br>שתפו אותנו</h2>
-                
-                <form action="https://formspree.io/f/xzdeavro" method="POST">
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>שם מלא</label>
-                            <input type="text" name="name" placeholder="שם מלא" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>אימייל</label>
-                            <input type="text" name="contact" placeholder="אימייל" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>תוכן ההודעה</label>
-                        <textarea rows="6" name="message" placeholder="תוכן ההודעה" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn-submit">שליחה</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        function openStory(id) {
-            window.location.href = `story.html?id=${id}`;
-        }
-
-        // Audio Player Logic
-        function togglePlay() {
-            var audio = document.getElementById("song-player");
-            var btn = document.getElementById("play-btn");
-            
-            if (audio.paused) {
-                audio.play();
-                btn.innerHTML = "<span>⏸</span> <span>עצור שיר</span>";
-            } else {
-                audio.pause();
-                btn.innerHTML = "<span>▶</span> <span>נגן את השיר</span>";
-            }
-        }
-
-        function toggleMenu() {
-            const nav = document.getElementById('nav-links');
-            nav.classList.toggle('active');
-        }
-    </script>
+    <script src="stories.js"></script>
+    <script src="site.js"></script>
 </body>
 </html>

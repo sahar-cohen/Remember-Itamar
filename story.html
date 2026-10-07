@@ -4,97 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>סיפורו של איתמר</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Unique styles for the Story Page */
-        .story-hero { 
-            background: var(--primary-red); 
-            color: white; 
-            padding: 4rem 0; 
-            text-align: center; 
-        }
-        
-        .story-hero h1 {
-            color: white;
-            font-size: 2.5rem;
-            margin-top: 1rem;
-        }
-
-        .paper { 
-            max-width: 800px; 
-            margin: -50px auto 50px; 
-            background: white; 
-            padding: 3rem; 
-            border-radius: 24px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
-            position: relative; 
-            z-index: 10;
-        }
-
-        .back-link { 
-            display: inline-block; 
-            color: rgba(255,255,255,0.9); 
-            margin-bottom: 1rem; 
-            border: 1px solid rgba(255,255,255,0.3); 
-            padding: 0.5rem 1.2rem; 
-            border-radius: 50px; 
-            font-weight: 500;
-        }
-        .back-link:hover { 
-            background: white; 
-            color: var(--primary-red); 
-        }
-
-        /* --- UPDATED IMAGE STYLE (No Cropping) --- */
-        .story-featured-image {
-            width: 100%; /* Take full width of the paper */
-            height: auto; /* Adjust height automatically based on the image ratio */
-            max-height: 650px; /* Cap the height so portrait photos don't take up the whole screen */
-            object-fit: contain; /* Ensure the WHOLE image fits inside */
-            border-radius: 16px;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* The text content */
-        #content {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #333;
-            white-space: pre-line; /* This preserves your paragraphs! */
-        }
-        
-        @media (max-width: 768px) {
-            .paper { margin-top: -30px; padding: 1.5rem; width: 95%; }
-            .story-hero h1 { font-size: 1.8rem; }
-        }
-    </style>
+    <script>document.documentElement.className = 'js';</script>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="logo">זוכרים את איתמר</div>
-            <a href="index.html" style="font-weight: 700;">חזרה לדף הבית</a>
+    <nav class="nav is-solid" id="nav">
+        <div class="container nav-inner">
+            <a href="index.html" class="brand">זוכרים את איתמר</a>
+            <button class="menu-btn" id="menu-btn" aria-label="תפריט" aria-expanded="false"><span></span><span></span></button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html#about">על איתמר</a>
+                <a href="index.html#stories">סיפורים</a>
+                <a href="index.html#song">השיר</a>
+                <a href="index.html#contact">שתפו אותנו</a>
+            </div>
         </div>
     </nav>
 
-    <div class="story-hero">
+    <main class="story-page">
         <div class="container">
-            <a href="index.html" class="back-link">&larr; חזרה לכל הסיפורים</a>
-            <h1 id="title">טוען סיפור...</h1>
-        </div>
-    </div>
+            <a href="index.html#stories" class="back-link"><i>&rarr;</i> חזרה לכל הסיפורים</a>
+            <h1 id="title" class="reveal">טוען סיפור...</h1>
+            <div class="story-layout">
+                <div class="story-body reveal" id="content" style="--delay: 0.1s"></div>
+                <figure class="story-photo reveal-img"><img id="storyImage" src="" alt=""></figure>
+            </div>
 
-    <div class="container">
-        <div class="paper">
-            <img id="storyImage" class="story-featured-image" src="" alt="">
-            
-            <p id="content"></p>
+            <section class="more-stories">
+                <h2 class="section-title">סיפורים נוספים</h2>
+                <div class="more-grid" id="more"></div>
+            </section>
         </div>
+    </main>
+
+    <div class="floating-links" id="floating-links">
+        <a class="float-btn float-instagram" href="https://www.instagram.com/rememberitamar/" target="_blank" rel="noopener" aria-label="עמוד האינסטגרם לזכרו של איתמר">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg>
+        </a>
+        <a class="float-btn float-whatsapp" href="https://chat.whatsapp.com/GygtuAQmglH5ugLsgziRcv?mode=gi_t" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+            <span>הצטרפו לקבוצת הווטסאפ</span>
+        </a>
     </div>
 
     <footer>
@@ -103,93 +57,49 @@
         </div>
     </footer>
 
+    <script src="stories.js"></script>
     <script>
-        // Get the ID from the URL (e.g., story.html?id=father)
-        const params = new URLSearchParams(window.location.search);
-        const id = params.get('id');
+        const id = new URLSearchParams(window.location.search).get('id');
+        const item = storyList.find(function (entry) { return entry.id === id; });
+        const content = document.getElementById('content');
+        const img = document.getElementById('storyImage');
 
-        // Data for the stories
-        const stories = {
-            'mother': { 
-                title: 'אורלי אמא של איתמר מספרת על חוש צדק מגיל ילדות', 
-                image: 'images/story-mom-orly.jpg',
-                text: `כשאיתמר היה ילד בגן, היתה בגן מסיבה וכל ילד היה תפקיד. כל ההורים הגיעו אל המסיבה, בה ילדיי הגן היו אמורים להעלות הצגה. כשהגיע התור של איתמר לקום ולהשתתף בהצגה, הוא בחר שלא לקום ושלא לקחת חלק במסיבה ורק נצמד אל אמא שלו שישבה לידו. וכך נהגו גם מספר ילדים נוספים שסירבו להשתתף באותה הצגה, לא קמו והמשיכו לשבת ליד הוריהם. לאחר המסיבה, אורלי שאלה את איתמר מה קרה ומדוע הוא בחר לא להשתתף ואיתמר אמר לה שזה בגלל שהגננת צעקה עליו ועל ילדים נוספים והתנהגה אליהם לא יפה ולכן אותם ילדים החליטו לא להשתתף בהצגה.
-
-הסיפור הזה מתקשר לעוד אירוע שהיה לאחר מספר שנים עת איתמר היה תלמיד בבית ספר תיכון, שם לימדה מורה שהתנהגה בצורה שאינה מקובלת ואינה מכבדת וכללה צעקות והשפלות כלפיי התלמידים בכיתה של איתמר. איתמר סיפר לנו על אותה מורה ואמר שהוא ממש לא יכול שהיא תמשיך ללמד אותו ותהיה חלק מצוות המורים כי היא פוגעת בתלמידים. לכן, איתמר פעל על מנת שאותה המורה תושהה מבית הספר והנהלת בית הספר בחנה את הטענות ובסופו של יום סילקה את אותה מורה. (הערה - איתמר הקליט את אותה מורה כשהיא צועקת והציג להנהלה את אותן "ראיות" אחרת יש להניח שההנהלה לא היתה מתייחסת לדברים בחומרה הנדרשת).
-
-אני מוסיף - שאיתמר היה ילד רגיש לסובבים אותו, פעיל (ואף מדריך) בתנועת נוער (כמובן שלאחר מכן מפקד בצנחנים) ותמיד רדף צדק ופעל למנוע עוולות.` 
-            },
-
-            'brother': { 
-                title: 'האח נדב מספר איך איתמר דאג שיתאמן ויאמץ אורח חיים בריא', 
-                image: 'images/story-brother-nadav.avif',
-                text: `תחום הכושר הגופני והבריאות תמיד היה מאוד חשובים לאיתמר.
-
-כשהייתי בן 9, איתמר שם לב שאני לא ממש מפעיל את הגוף, רוב הזמן שיחקתי במחשב והייתי בחדרי. איתמר, שידע שזה לא בריא, ורצה את הטוב ביותר עבורי, החליט לקחת את המצב לידיים שלו. כהתחלה, בכל יום רביעי הוא היה קורא לי אל חדר העבודה של אימי שנמצא אצלנו בבית ובעזרת מתקני אימון שהוא התקין שם, העביר לי אימון גופני. גם כשלא רציתי, גם כשהיה לי קשה, הוא לא ויתר עליי אפילו לרגע כי הוא ידע כמה חשוב הכושר הגופני, וכמה הוא תורם לבריאות.
-
-בזכותו, התחלתי להשתפר לאט לאט ואפילו ממש לאהוב כושר ובריאות. בשנתיים האחרונות, כמעט בכל פעם שהגיע הביתה מהצבא לחופשת שישי-שבת היינו הולכים יחד למכון הכושר לאימון משותף. הזיכרון שלו מתחיל לאמן אותי ומאמין שזה הדבר הנכון עבורי ולא מוותר עליי - גם כשאני ממש לא בכושר - מרגש אותי מאוד, ואני אמשיך לחיות את עולם הכושר והבריאות גם בשבילו.` 
-            },
-
-            'father': { 
-                title: 'אבא של איתמר מספר על ראיית הטוב בכל מצב', 
-                image: 'images/story-dad-meir.avif',
-                text: `איתמר התנדב לצנחנים אחרי מיונים ארוכים.
-
-מייד אחרי הגיוס ולאחר שהוא כבר התקבל לצנחנים, נערכו מיונים נוספים והפעם לסיירות.
-איתמרי התאמץ מאוד, הגיע להשגים טובים חזר הביתה פצוע בזרועות עייף בטרוף והיתה לו תחושה טובה שהוא אכן יתקבל לסיירת. אבל כמה ימים אחר כך נאמר לו שלא עבר את המיונים והוא שוייך לגדוד 101 בצנחנים שנחשב לגדוד הטוב ביותר של צנחנים.
-
-איתמר התאכזב מאוד מכך שלא התקבל לסיירת והיו לנו שיחות בהן הוא לא הבין למה לא נבחר. יחד עם זאת, יומיים לאחר מכן הוא הודיע למשפחה המשפחה ולחברים: ״החלטתי שאין לי מה להמשיך לחשוב על זה שלא התקבלתי לסיירת ושאני הולך להתמקד בלהיות החייל הכי טוב בגדוד 101" וכך היה.
-
-הוא היה עם כוחות ואמונה בעצמו והשקיע רבות בשירות ובסלול שהוא עשה. איתמר סיום את המסלול, היה בשכם עבר אימון חורף בשלג בגבול לבנון והצטיין באימון ובשלב מאוחר יותר בחרו בו לצאת לקורס מכ״ים - אליו מתקבלים הטובים ביותר ומי שמיועדים על ידי הצבא למסלול של קצונה. עם סיום קורס המפקדים הוא קיבל כיתת טירונים ובהמשך הפך לסמל מחלקה ואז לרב סמל פלוגתי. אהב כל רגע בשירות הצבאי וחש מחויבות עמוקה כלפיי חייליו.` 
-            },
-
-            'sister': { 
-                title: 'האחות ענבל מספרת על הגישה של איתמר', 
-                image: 'images/story-sister-inbal.jpg',
-                text: `כשאיתמר היה בהכשרה בצנחנים, הוא הכיר אנשים מכל רחבי הארץ, מכל הדעות, ומכל הזרמים.
-
-אחד החיילים שהיה עם איתמר, היה חייל דתי בעל אמונה גדולה, שעל כל דבר – וגם בזמנים הקשים וגם שהמפקדים הטילו עונשים – היה אומר "איזו זכות". כשניקו שירותים, החייל אמר ״איזו זכות לנקות את השירותים בבסיס של צבא ההגנה לישראל!״. כשרצו סביב המבנה כעונש היה אומר ״איזו זכות לבנות את הכושר כחיילי צה״ל כדי להגן על המדינה!״.
-
-תחילה איתמר (כמו גם יתר החיילים במחלקה) היה מופתע ממנו אך לאט לאט למד כי זו הגישה הנכונה והחל לאמץ את אותה אמירה בעצמו. איתמר לא עצר עם אותו משפט רק בצבא והוא החליט שהוא מאמץ ומיישם את הגישה הזו ואת המנהג גם לתחומים נוספים.
-
-איתמר סיפר לנו את הסיפור הזה כמה וכמה פעמים, כדי להנחיל את המנהג הזה גם אצלנו. הוא הקפיד להזכיר לנו את זה ולהתנהג כך גם בבית וכך הביטוי "איזו זכות" הפך לסוג של מטבע לשון אצל איתמר. כשההורים היו מבקשים מאיתנו לסדר את כל הבית, סידור ״כבד״ כזה, איתמר אמר לי ולנדב ״איזו זכות! לסדר את הבית כמו שאמא ואבא ביקשו״ או ״איזו זכות לשטוף את הגינה בבית בארץ ישראל״, וכמובן שתמיד אמר "איזו זכות לשרת את עם ישראל". ואני בזכותו אימצתי את המנהג. אני חייבת לו המון תודה על היכולת להגיד "איזו זכות" ברגעים קשים או מעצבנים, ולהצליח לעשות את הדברים בשמחה במקום בבאסה.` 
-            },
-
-            'partner': { 
-                title: 'ליאור בת הזוג מספרת על בן הזוג האוהב והמסור', 
-                image: 'images/story-girlfriend-lior.avif',
-                text: `איתמר ילד מיוחד, עם לב גדול, עם מוכנות גדולה להשקיע ולתת מעצמו לסובבים אותו. אחרי כמעט שנה של זוגיות איתו, היה לי מסע כומתה בסוף הטירונות ואיתמר היה בקורס מכים. לא ידעתי אם יצליח לבוא למסע לראות אותי מסיימת הכשרה.
-
-בסוף המסע אני רואה אותו עומד שם עם המשפחה שלי. בדיעבד גיליתי שהוא בעצמו עשה מסע כומתה בשביל להגיע לרגע הזה. אחרי לילה לבן של תרגולים מעייפים ומאמצים בשטח, הוא יצא בשלוש לפנות בוקר לתחנת אוטובוס שהיה במרחק שעה הליכה והחליף כמה אוטובוסים רק כדי שאוכל לראות אותו שם בסוף המסע.
-בסוף יצא ששנינו עשינו מסעות באותו יום בשביל להגיע להיות באותו מקום ביחד.` 
-            },
-
-            'grandfather': { 
-                title: 'סבא גדליהו מספר על העזרה של איתמר בשימור הכושר הגופני', 
-                image: 'images/story-granpda-gdalyahu.avif',
-                text: `איתמר היה נכד טוב, כיבד את סבא וסבתא שלו ודאג להם. סבא גדליהו תמיד היה סבא חזק ודאג לנו מאוד, בעבר הוא נהג לקחת אותנו מבית הספר והגן והסיע אותנו לאן שרצינו ואיתמר מאוד העריך אותו ובכל הזדמנות עזר לו בחזרה.
-
-כשאיתמר התגייס, הוא שם לב שהכושר של סבא גדליהו מעט מדרדר. איתמר, שמאוד אהב כושר והיה מומחה בתחום, החליט לקחת את העניין לידיים שלו. בכל פעם שיצא מהצבא, הוא היה לוקח את סבו לאימון מותאם עבורו, הם יצאו יחד להליכה בטיילת ואיתמר הדריך אותו בתרגילי כושר על מנת שיתחזק. למרות שהזמן של איתמר בבית היה מועט, הוא הקפיד על האימונים עם סבו ולא פספס אותם.
-
-האימונים האלו חיזקו את סבו, ויותר מכך גרמו לו לדעת שאיתמר אוהב אותו ומעריך אותו מאוד.
-סבו גדליהו מספר: "כמה מילים לזכרו של איתמרוש האהוב שלנו שבכל הזדמנות שאיתמרוש היה מגיע הביתה היה לוקח אותי לטיילת ליד החוף ועושה לי תרגילי ספורט בטיילת שמאוד אהבתי. איתמרוש היה נכד אהוב מאוד על כולם ואני גם אהבתי מאוד את איתמרי וידוע לי שגם איתמרוש אהב אותי מאוד".` 
-            }
-        };
-
-        // Logic to populate the page
-        if (stories[id]) {
-            document.getElementById('title').innerText = stories[id].title;
-            document.getElementById('content').innerText = stories[id].text;
-            
-            // Set image source
-            const imgElement = document.getElementById('storyImage');
-            imgElement.src = stories[id].image;
-
+        if (item && stories[id]) {
+            const story = stories[id];
+            document.getElementById('title').textContent = story.title;
+            document.title = story.title;
+            img.src = story.image;
+            img.alt = item.author + ' ואיתמר';
+            if (item.imagePosition) img.style.objectPosition = item.imagePosition;
+            story.text.split(/\n\s*\n/).forEach(function (paragraph) {
+                const p = document.createElement('p');
+                p.textContent = paragraph.trim();
+                content.appendChild(p);
+            });
         } else {
-            document.getElementById('title').innerText = 'סיפור לא נמצא';
-            document.getElementById('content').innerText = 'אנא חזרו לדף הבית ובחרו סיפור מהרשימה.';
-            document.getElementById('storyImage').style.display = 'none';
+            document.getElementById('title').textContent = 'סיפור לא נמצא';
+            content.textContent = 'אנא חזרו לדף הבית ובחרו סיפור מהרשימה.';
+            img.parentElement.style.display = 'none';
         }
+
+        const more = document.getElementById('more');
+        // Show the next 5 stories in site order, wrapping around to the start
+        const start = Math.max(storyList.indexOf(item), 0);
+        const nextStories = storyList.slice(start + 1).concat(storyList.slice(0, start))
+            .filter(function (entry) { return entry.id !== id; })
+            .slice(0, 5);
+        nextStories.forEach(function (entry) {
+            const card = document.createElement('a');
+            card.className = 'mini-card';
+            card.href = 'story.html?id=' + entry.id;
+            card.innerHTML = '<figure><img loading="lazy" alt=""></figure><h3></h3>';
+            const cardImg = card.querySelector('img');
+            cardImg.src = stories[entry.id].image;
+            if (entry.imagePosition) cardImg.style.objectPosition = entry.imagePosition;
+            card.querySelector('h3').textContent = stories[entry.id].title;
+            more.appendChild(card);
+        });
     </script>
+    <script src="site.js"></script>
 </body>
 </html>
